@@ -11,6 +11,10 @@ function calculateResults(e){
   const monthlyPayment = document.getElementById('monthly-payment');
   const totalPayment = document.getElementById('total-payment');
      
+  const principal = parseFloat(amount.value);
+  const calculatedInterest = parseFloat(interest.value) / 100 / 12
+  const calculatedPayments = parseFloat(years.value) * 12;
+
 
   e.preventDefault();
 }
