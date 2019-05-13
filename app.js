@@ -25,8 +25,35 @@ function calculateResults(e){
     totalPayment.value = (monthly * calculatedPayments).toFixed(2);
     totalInterest.value = ((monthly * calculatedPayments) - principal).toFixed(2);
   }else{
-    console.log('check your numbers');
+    showError('Ошибка. Проверьте введенные данные')
   }
 
   e.preventDefault();
+};
+
+//showError
+function showError(error){
+  //create div
+  const errorDiv = document.createElement('div');
+
+  //get elements
+  const card = document.querySelector('.card');
+  const heading = document.querySelector('.heading');
+
+  //add class
+  errorDiv.className = 'alert alert-danger';
+
+  //create textNode and append to div
+  errorDiv.appendChild(document.createTextNode(error));
+
+  //insert error above heading
+  card.insertBefore(errorDiv, heading);
+
+  //clear error after 3 secconds
+  setTimeout(clearError, 3000);
+}
+
+//clearError
+function clearError(){
+  document.querySelector('.alert').remove();
 }
